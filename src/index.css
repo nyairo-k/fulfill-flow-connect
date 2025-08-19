@@ -8,7 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 210 40% 98%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -17,14 +17,14 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
 
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
@@ -32,9 +32,34 @@ All colors MUST be HSL.
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 217.2 91.2% 59.8%;
+
+    /* Status colors */
+    --status-pending: 43 96% 56%;
+    --status-pending-foreground: 26 83% 14%;
+    --status-processing: 217.2 91.2% 59.8%;
+    --status-processing-foreground: 0 0% 100%;
+    --status-completed: 142.1 76.2% 36.3%;
+    --status-completed-foreground: 0 0% 100%;
+    --status-cancelled: 0 84.2% 60.2%;
+    --status-cancelled-foreground: 0 0% 100%;
+    --status-paid: 142.1 76.2% 36.3%;
+    --status-paid-foreground: 0 0% 100%;
+    --status-unpaid: 0 84.2% 60.2%;
+    --status-unpaid-foreground: 0 0% 100%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217.2 91.2% 59.8%), hsl(221.2 83.2% 53.3%));
+    --gradient-secondary: linear-gradient(135deg, hsl(210 40% 96.1%), hsl(220 14.3% 95.9%));
+    
+    /* Shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(217.2 91.2% 59.8% / 0.2);
+    --shadow-card: 0 4px 6px -1px hsl(220 8.9% 46.1% / 0.1);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --radius: 0.5rem;
 

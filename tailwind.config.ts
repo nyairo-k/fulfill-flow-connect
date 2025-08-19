@@ -52,6 +52,20 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				status: {
+					pending: 'hsl(var(--status-pending))',
+					'pending-foreground': 'hsl(var(--status-pending-foreground))',
+					processing: 'hsl(var(--status-processing))',
+					'processing-foreground': 'hsl(var(--status-processing-foreground))',
+					completed: 'hsl(var(--status-completed))',
+					'completed-foreground': 'hsl(var(--status-completed-foreground))',
+					cancelled: 'hsl(var(--status-cancelled))',
+					'cancelled-foreground': 'hsl(var(--status-cancelled-foreground))',
+					paid: 'hsl(var(--status-paid))',
+					'paid-foreground': 'hsl(var(--status-paid-foreground))',
+					unpaid: 'hsl(var(--status-unpaid))',
+					'unpaid-foreground': 'hsl(var(--status-unpaid-foreground))',
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
