@@ -51,6 +51,38 @@ const mockInvoices: Invoice[] = [
         unitPrice: 5000,
       }
     ]
+  },
+  {
+    invoiceId: "INV-003",
+    customerName: "Enterprise Corp",
+    customerPhone: "+254734567890",
+    invoiceDate: "2024-01-17",
+    status: "AWAITING_FULFILLMENT",
+    totalAmount: 850000,
+    lineItems: [
+      { id: "4", productId: "PROD-001", productName: "Laptop Dell XPS 13", quantity: 5, unitPrice: 65000 },
+      { id: "5", productId: "PROD-002", productName: "Wireless Mouse", quantity: 10, unitPrice: 2500 },
+      { id: "6", productId: "PROD-004", productName: "Mechanical Keyboard", quantity: 8, unitPrice: 4500 },
+      { id: "7", productId: "PROD-005", productName: "USB-C Hub", quantity: 12, unitPrice: 3200 },
+      { id: "8", productId: "PROD-006", productName: "External Monitor 24\"", quantity: 6, unitPrice: 18000 },
+      { id: "9", productId: "PROD-007", productName: "Webcam HD", quantity: 15, unitPrice: 2800 },
+      { id: "10", productId: "PROD-008", productName: "Desk Lamp LED", quantity: 20, unitPrice: 1500 },
+      { id: "11", productId: "PROD-009", productName: "Ergonomic Mouse Pad", quantity: 25, unitPrice: 800 },
+      { id: "12", productId: "PROD-010", productName: "Cable Management Kit", quantity: 18, unitPrice: 1200 },
+      { id: "13", productId: "PROD-011", productName: "Surge Protector", quantity: 10, unitPrice: 2200 },
+      { id: "14", productId: "PROD-012", productName: "Wireless Presenter", quantity: 5, unitPrice: 3500 },
+      { id: "15", productId: "PROD-013", productName: "Bluetooth Headphones", quantity: 12, unitPrice: 5500 },
+      { id: "16", productId: "PROD-014", productName: "Portable SSD 1TB", quantity: 8, unitPrice: 8500 },
+      { id: "17", productId: "PROD-015", productName: "USB Flash Drive 64GB", quantity: 30, unitPrice: 1200 },
+      { id: "18", productId: "PROD-016", productName: "Laptop Stand", quantity: 10, unitPrice: 2800 },
+      { id: "19", productId: "PROD-017", productName: "Document Scanner", quantity: 3, unitPrice: 15000 },
+      { id: "20", productId: "PROD-018", productName: "Label Printer", quantity: 4, unitPrice: 12000 },
+      { id: "21", productId: "PROD-019", productName: "Network Switch 8-Port", quantity: 2, unitPrice: 8500 },
+      { id: "22", productId: "PROD-020", productName: "Wireless Router", quantity: 3, unitPrice: 6500 },
+      { id: "23", productId: "PROD-021", productName: "UPS Battery Backup", quantity: 5, unitPrice: 12500 },
+      { id: "24", productId: "PROD-022", productName: "Conference Phone", quantity: 2, unitPrice: 22000 },
+      { id: "25", productId: "PROD-023", productName: "Projector Portable", quantity: 1, unitPrice: 35000 }
+    ]
   }
 ];
 
