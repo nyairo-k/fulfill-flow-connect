@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Package, Clock, CheckCircle, Truck } from "lucide-react";
 import { StatusBadge } from "./StatusBadge";
 import { InvoiceAssignmentDialog } from "./InvoiceAssignmentDialog";
+import { DispatchApprovalDialog } from "./DispatchApprovalDialog";
 import { OutsourcedItemsHub } from "./OutsourcedItemsHub";
 import type { Invoice } from "@/types/inventory";
 
@@ -89,6 +90,7 @@ const mockInvoices: Invoice[] = [
 export function FulfillmentCenter() {
   const [selectedInvoice, setSelectedInvoice] = useState<Invoice | null>(null);
   const [activeTab, setActiveTab] = useState("pending");
+  const [dispatchInvoice, setDispatchInvoice] = useState<Invoice | null>(null);
 
   const getStatusIcon = (status: string) => {
     switch (status) {
@@ -118,6 +120,26 @@ export function FulfillmentCenter() {
       default:
         return "pending";
     }
+  };
+
+  const handleInvoiceClick = (invoice: Invoice) => {
+    if (invoice.status === 'ASSIGNED') {
+      setDispatchInvoice(invoice);
+    } else {
+      setSelectedInvoice(invoice);
+    }
+  };
+
+  const handleDispatchApprove = (invoiceId: string) => {
+    console.log('Approving invoice for dispatch:', invoiceId);
+    // Update invoice status to DISPATCHED
+    setDispatchInvoice(null);
+  };
+
+  const handleDispatchReject = (invoiceId: string) => {
+    console.log('Rejecting invoice dispatch:', invoiceId);
+    // Update invoice status back to AWAITING_FULFILLMENT
+    setDispatchInvoice(null);
   };
 
   return (
@@ -174,7 +196,7 @@ export function FulfillmentCenter() {
 
                     <Button 
                       className="w-full" 
-                      onClick={() => setSelectedInvoice(invoice)}
+                      onClick={() => handleInvoiceClick(invoice)}
                       disabled={invoice.status === "COMPLETED"}
                     >
                       {invoice.status === "AWAITING_FULFILLMENT" ? "Assign Fulfillment" : "View Details"}
@@ -210,13 +232,23 @@ export function FulfillmentCenter() {
           </TabsContent>
         </Tabs>
 
-        {selectedInvoice && (
-          <InvoiceAssignmentDialog
-            invoice={selectedInvoice}
-            open={!!selectedInvoice}
-            onClose={() => setSelectedInvoice(null)}
-          />
-        )}
+      {selectedInvoice && (
+        <InvoiceAssignmentDialog
+          invoice={selectedInvoice}
+          open={!!selectedInvoice}
+          onClose={() => setSelectedInvoice(null)}
+        />
+      )}
+
+      {dispatchInvoice && (
+        <DispatchApprovalDialog
+          invoice={dispatchInvoice}
+          open={!!dispatchInvoice}
+          onClose={() => setDispatchInvoice(null)}
+          onApprove={handleDispatchApprove}
+          onReject={handleDispatchReject}
+        />
+      )}
       </div>
     </div>
   );
