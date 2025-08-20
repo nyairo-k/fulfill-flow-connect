@@ -28,9 +28,9 @@ export function InvoiceAssignmentDialog({ invoice, open, onClose }: InvoiceAssig
     switch (item.fulfillmentSource) {
       case 'MAIN_HQ':
       case 'NYAMIRA':
-        return item.serialNumbers && item.serialNumbers.length >= item.quantity;
+        return item.serialNumbers && item.serialNumbers.length > 0;
       case 'FIELD_REP':
-        return item.assignedRep && item.serialNumbers && item.serialNumbers.length >= item.quantity;
+        return item.assignedRep && item.serialNumbers && item.serialNumbers.length > 0;
       case 'OUTSOURCE':
         return !!item.poId;
       default:

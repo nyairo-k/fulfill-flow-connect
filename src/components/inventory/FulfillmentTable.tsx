@@ -111,16 +111,13 @@ export function FulfillmentTable({ lineItems, invoiceId, onLineItemUpdate }: Ful
         return (
           <div className="flex items-center gap-2 text-xs">
             <Input
-              placeholder="Serial numbers (comma-separated)"
-              value={item.serialNumbers?.join(', ') || ''}
+              placeholder="Enter serial number"
+              value={item.serialNumbers?.[0] || ''}
               onChange={(e) => onLineItemUpdate(item.id, {
-                serialNumbers: e.target.value.split(',').map(s => s.trim()).filter(Boolean)
+                serialNumbers: e.target.value.trim() ? [e.target.value.trim()] : undefined
               })}
               className="h-8 text-xs"
             />
-            <Badge variant={item.serialNumbers?.length >= item.quantity ? "success" : "secondary"}>
-              {item.serialNumbers?.length || 0}/{item.quantity}
-            </Badge>
           </div>
         );
 
@@ -145,16 +142,13 @@ export function FulfillmentTable({ lineItems, invoiceId, onLineItemUpdate }: Ful
             {item.assignedRep && (
               <div className="flex items-center gap-2">
                 <Input
-                  placeholder="Serial numbers (comma-separated)"
-                  value={item.serialNumbers?.join(', ') || ''}
+                  placeholder="Enter serial number"
+                  value={item.serialNumbers?.[0] || ''}
                   onChange={(e) => onLineItemUpdate(item.id, {
-                    serialNumbers: e.target.value.split(',').map(s => s.trim()).filter(Boolean)
+                    serialNumbers: e.target.value.trim() ? [e.target.value.trim()] : undefined
                   })}
                   className="h-8 text-xs"
                 />
-                <Badge variant={item.serialNumbers?.length >= item.quantity ? "success" : "secondary"}>
-                  {item.serialNumbers?.length || 0}/{item.quantity}
-                </Badge>
               </div>
             )}
           </div>
@@ -218,9 +212,9 @@ export function FulfillmentTable({ lineItems, invoiceId, onLineItemUpdate }: Ful
                   switch (item.fulfillmentSource) {
                     case 'MAIN_HQ':
                     case 'NYAMIRA':
-                      return item.serialNumbers && item.serialNumbers.length >= item.quantity;
+                      return item.serialNumbers && item.serialNumbers.length > 0;
                     case 'FIELD_REP':
-                      return item.assignedRep && item.serialNumbers && item.serialNumbers.length >= item.quantity;
+                      return item.assignedRep && item.serialNumbers && item.serialNumbers.length > 0;
                     case 'OUTSOURCE':
                       return !!item.poId;
                     default:
